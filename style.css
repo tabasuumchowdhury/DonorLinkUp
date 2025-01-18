@@ -1,3 +1,65 @@
-body{
+body, html {
     background-color: lightblue;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center; /*horizontally*/
+    align-items: center; /*vertically*/
+}
+
+main {
+    justify-content: center; /*horizontally*/
+    align-items: center; /*vertically*/
+    text-align: center;
+}
+
+input[type="text"]{
+    border-radius: 5px; /*rounded corners*/
+    color: navy;
+    background-color: white;
+    font-size: 16px;
+}
+
+.form-field{
+    margin-bottom: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    button {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-decoration: none
+    }
+
+    button a {
+        text-decoration: none;
+        color: navy;
+    }
+  }
+
+.interest-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interest-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.interest-button:hover {
+    background-color: #e0e0e0;
 }
