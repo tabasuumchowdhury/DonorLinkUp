@@ -1,3 +1,21 @@
 body{
     background-color: lightblue;
 }
+
+input[type="text"]{
+    border-radius: 25px; /*rounded corners*/
+    color: black;
+    background-color: white;
+    font-size: 16px;
+}
+
+#tags-dropdown .options {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto; /* Allows scrolling if there are many options */
+    width: 100%;
+    z-index: 1000;
+  }
