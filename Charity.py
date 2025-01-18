@@ -62,10 +62,10 @@ class Charity:
                 charities.append(charity_instance)
             return charities
 
-        def charity_search(charity_list):
+        def charity_search(charity_list, category, city):
             from_csv(Charity, "charity.csv")
             charity_chosen =[]
             for charity in charity_list:  # Print the first 5 objects
-                if (charity.cat == "Supportive Health Care" and charity.city == "MONTREAL") :
+                if (charity.cat == category and charity.city == city) :
                     charity_chosen.append(charity)
             return charity_chosen
