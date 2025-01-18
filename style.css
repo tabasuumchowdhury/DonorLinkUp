@@ -63,3 +63,8 @@ input[type="text"]{
 .interest-button:hover {
     background-color: #e0e0e0;
 }
+
+.interest-button.active {
+    background-color: navy;
+    color: white;
+}
