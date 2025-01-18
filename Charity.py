@@ -1,3 +1,5 @@
+import pandas as pd
+
 class Charity:
     bn = ""
     cat = ""
@@ -39,3 +41,31 @@ class Charity:
             data.get('postalCode', ""),
             data.get('country', "")
         )
+
+        def from_csv(cls, file_path):
+            charities = []
+            df = pd.read_csv(file_path, encoding='utf-8', on_bad_lines="skip", 
+                 keep_default_na=False, na_values=["", "NA", "N/A"])
+            for _, row in df.iterrows():
+                charity_instance = cls(
+                    bn=row['BN'],
+                    cat=row['Category'],
+                    legalName=row['Legal Name'],
+                    accName=row['Account Name'],
+                    addressLine1=row['Address Line 1'],
+                    addressLine2=row['Address Line 2'],
+                    city=row['City'],
+                    province=row['Province'],
+                    postalCode=row['Postal Code'],
+                    country=row['Country']
+                )
+                charities.append(charity_instance)
+            return charities
+
+        def charity_search(charity_list):
+            from_csv(Charity, "charity.csv")
+            charity_chosen =[]
+            for charity in charity_list:  # Print the first 5 objects
+                if (charity.cat == "Supportive Health Care" and charity.city == "MONTREAL") :
+                    charity_chosen.append(charity)
+            return charity_chosen
