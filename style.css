@@ -98,3 +98,29 @@ a:link{
 a:visited{
     color: #6bb4df;
 }
+
+.top-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    padding-left: 650px;
+  }
+  
+  .top-image img {
+    width: 50%;
+    height: auto;
+  }
+
+  .top-left-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  
+  .top-left-image img {
+    width: 15%;
+    height: auto;
+  }
