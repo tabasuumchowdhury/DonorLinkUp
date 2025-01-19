@@ -124,3 +124,85 @@ a:visited{
     width: 15%;
     height: auto;
   }
+
+  #dashboard-welcome {
+    position: fixed;
+    top: 110px;
+    font-size: 15px;
+  }
+
+  #instructions {
+    position: fixed;
+    bottom: 100px;
+    font-size: 15px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 2fr);
+    row-gap: 100px;
+    column-gap: 300px;
+  }
+
+  .grid-container > *:first-child {
+    outline: 6px solid white;
+    border-radius: 40px;
+    outline-offset: 100px;
+  }
+
+  .grid-container > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tiny-box
+  {
+    font-size: 15px;
+  }
+
+  .arrow {
+    border: solid black;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 200px;
+    border: solid darkgreen;
+    border-width: 0 3px 3px 0;
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-right: 200px;
+    border: solid red;
+    border-width: 0 3px 3px 0;
+  }
+
+/*
+  .box-container {
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #000;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .box-container p {
+    width: 40%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }*/
+
+
+
+
