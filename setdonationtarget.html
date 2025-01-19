@@ -8,7 +8,7 @@
 </head>
 <body>
     <main class="donation-page">
-        <img src="/graphics/donorlinkuplogo.png" alt="Heart Logo" style="width:50px; height:auto;">
+        <img src="/graphics/donorlinkuplogo.png" alt="Heart Logo" style="width:100px; margin-top: 100px;">
         <h1>Enter your target donation details</h1>
         <div class="form-field">
             <p>Enter your target donation amount in CAD</p>
@@ -32,6 +32,18 @@
         </div>
         <div class="nav">
             <button type="button" onclick="saveTarget()">Next</button>
+        </div>
+        <div id="emptyField" style="display: none;">
+            <p class="error">Please enter a value for all fields.</p>
+        </div>
+        <div id="amount" style="display: none;">
+            <p class="error">Please enter a valid donation amount (a positive number).</p>
+        </div>
+        <div id="dates" style="display: none;">
+            <p class="error">Please select both a start date and an end date.</p>
+        </div>
+        <div id="dateOrder" style="display: none;">
+            <p class="error">End date must be after the start date. Please correct the dates.</p>
         </div>
     </main>
 </body>

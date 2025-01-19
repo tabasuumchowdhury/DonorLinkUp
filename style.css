@@ -8,15 +8,6 @@ body, html {
     display: flex;
     justify-content: center; /*horizontally*/
     align-items: center; /*vertically*/
-
-    .donation-page{
-      display: block;
-    }
-}
-
-body.donation-page {
-  display: block; /* Disable centering for the donation page */
-  padding: 20px; /* Ensure content doesn't touch edges */
 }
 
 h1{
@@ -204,3 +195,13 @@ a:visited{
   .error{
     color: darkred;
   }
+
+.form-field p {
+    margin-bottom: 5px; /* Reduce the space below the text */
+}
+
+.form-field input, 
+.form-field select {
+    margin-top: 5px; /* Reduce the space above the input */
+    margin-bottom: 5px;
+}
