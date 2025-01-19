@@ -1,6 +1,7 @@
-document.querySelector('interest-button').addEventListener('click', function() {
-    this.classList.toggle("clicked");
-  });
+function changeButtonColor()
+{
+    
+}
 
   async function submitSignup() {
     const name = document.getElementById("name").value;

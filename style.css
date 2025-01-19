@@ -134,24 +134,8 @@ a:visited{
     font-size: 15px;
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    grid-template-rows: repeat(2, 2fr);
-    row-gap: 100px;
-    column-gap: 300px;
-  }
-
-  .grid-container > *:first-child {
-    outline: 6px solid white;
-    border-radius: 40px;
-    outline-offset: 100px;
-  }
-
-  .grid-container > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .left-div {
+    width: 20%;
   }
 
   .tiny-box
