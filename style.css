@@ -157,18 +157,35 @@ a:visited{
     position: absolute;
     text-align: center;
     width: 100%;
+    margin-right: 200px;
   }
 
   .right-div {
     position: absolute;
     text-align: center;
     width: 100%;
+    margin-left: 200px;
   }
 
   .tiny-box
   {
     font-size: 15px;
   }
+
+  .middle-div { /* container */
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .middle-div > *:first-child {
+    border: 3px solid #0f2f76; 
+    border-radius: 10px; 
+    padding: 20px; 
+}
 
   .arrow {
     border: solid black;
