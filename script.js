@@ -37,8 +37,7 @@ function saveTarget() {
         alert("Please enter a valid donation amount (a positive number).");
         return;
     }
-
-    if (!startDate || !endDate) {
+    else if (!startDate || !endDate) {
         alert("Please select both a start date and an end date.");
         return;
     }
