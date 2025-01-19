@@ -54,11 +54,8 @@ input[type="text"]{
         border: none;
         border-radius: 25px;
         cursor: pointer;
-        text-decoration: none
-    }
-
-    button a {
         text-decoration: none;
+        font-weight: bold;
         color: #0f2f76;
     }
 
