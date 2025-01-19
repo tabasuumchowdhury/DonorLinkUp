@@ -6,6 +6,10 @@ document.querySelector('interest-button').addEventListener('click', function() {
     this.classList.toggle("clicked");
   });
 
+let names = [];
+let emails = [];
+let hometowns = [];
+
 async function submitSignup() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -23,8 +27,16 @@ async function submitSignup() {
         messageEmail.style.display = "block";
     }
     else{
+        names.push(name);
+        emails.push(email);
+        hometowns.push(hometown);
         window.location.href="interests.html";
     }
+}
+
+function passToPython()
+{
+    return names, email, hometown
 }
 
 function saveTarget() {
