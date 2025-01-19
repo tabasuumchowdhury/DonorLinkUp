@@ -1,27 +1,155 @@
-<!DOCTYPE html>    
-<html >
-    <head>
-        <title>Interests</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <main class="interest-page">
-            <div class="interest-panel">
-                <button class="interest-button">
-                    Interest 1
-                </button>
-                <button class="interest-button">
-                    Interest 2
-                </button>
-                <button class="interest-button">
-                    Interest 3
-                </button>
-                <button class="interest-button">
-                    Interest 4
-                </button>
-            </div>
-        </main>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interests</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
+    <script>
+        const selectedInterests = new Set();
+
+        function toggleSelection(button) {
+            const interest = button.textContent.trim();
+            if (selectedInterests.has(interest)) {
+                selectedInterests.delete(interest);
+                button.classList.remove('selected');
+            } else {
+                selectedInterests.add(interest);
+                button.classList.add('selected');
+            }
+        }
+
+        function submitSignup() {
+            const selectedArray = Array.from(selectedInterests);
+            console.log("Selected interests:", selectedArray);
+            alert("Your selections have been saved:\n" + selectedArray.join(", "));
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .interest-page {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .interest-panel {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            justify-items: center;
+        }
+
+        .interest-button {
+            background-color: #fff;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        .interest-button.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .interest-button:hover {
+            transform: scale(1.05);
+        }
+
+        .nav {
+            grid-column: span 5;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav button {
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav button:hover {
+            background-color: #0056b3;
+        }
+
+        .header-text {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <main class="interest-page">
+        <div class="header-text">
+            Select your cause(s) of interest
+        </div>
+        <div class="interest-panel">
+            <button class="interest-button" onclick="toggleSelection(this)">Organizations relieving poverty</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Foundations relieving poverty</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Core Health Care</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Supportive Health Care</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Protective Health Care</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Health Care products</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Complementary or alternative healthcare</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Upholding Human Rights</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Community Resource</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Teaching institutions</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Support of schools and education</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Education in the arts</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Other educational organizations</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Foundations advancing education</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Research</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Arts</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Environment</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Agriculture</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Animal welfare</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Public amenities</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Foundations</button>
+            <button class="interest-button" onclick="toggleSelection(this)">NASO</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Relief of the Aged</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Islam</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Judaism</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Other religions</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Support of Religion</button>
+            <button class="interest-button" onclick="toggleSelection(this)">Ecumenical and interfaith organizations</button>
+        </div>
+        <div class="nav">
+            <a href="setdonationtarget.html">
+                <button type="button">Next</button>
+            </a>            
+        </div>
+    </main>
+</body>
 </html>
