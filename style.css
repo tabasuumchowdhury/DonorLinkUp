@@ -140,7 +140,7 @@ a:visited{
   #dashboard-welcome {
     font-size: 15px;
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center;

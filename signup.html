@@ -4,9 +4,20 @@
         <title>Sign Up</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script src="script.js"></script>
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     </head>
     <body>
+
+        <py-script>
+        import js
+
+        js_array = js.passToPython();
+        python_list = list(js_array);
+        python_object = person(python_list);
+
+        </py-script>
         <main class="signup-page">
             <h1>Create An Account</h1>
             <div class="form-field">
