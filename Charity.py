@@ -41,6 +41,7 @@ class Charity:
             data.get('postalCode', ""),
             data.get('country', "")
         )
+    
     @classmethod
     def from_csv(cls, file_path):
         charities = []
@@ -61,6 +62,7 @@ class Charity:
             )
             charities.append(charity_instance)
         return charities
+    
     @staticmethod
     def charity_search(category = "", city = ""):
         charities = Charity.from_csv(Charity, "charity.csv")
