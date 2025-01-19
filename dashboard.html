@@ -4,7 +4,8 @@
         <title>Dashboard</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
-
+        <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body class="dashboard">
         <div class="top-left-image">
@@ -18,14 +19,59 @@
             <p><i class="arrow left"></i></p>
         </div>
         <div class="middle-div">
-            <p>name</p>
-            <p class="tiny-box">category</p>
-            <p class="tiny-box">address</p>
-            <p class="tiny-box">city, country</p>
+            <p id = "charityName">name</p>
+            <p id = "category" class="tiny-box">category</p>
+            <p id = "address" class="tiny-box">address</p>
+            <p id = "cityProvince" class="tiny-box">city, provvince</p>
         </div>
         <div class="right-div">
             <p><i class="arrow right"></i></p>
-        </div>
+        </div> 
         <p id="instructions">Swipe right to learn more, swipe left to see a different charity (use arrow keys)</p>
     </body>
 </html>
+
+<script>
+    const charities = [
+        { name: "Charity A", category: "Health", address: "123 Street", cityProvince: "Montreal, QC"},
+        { name: "Charity B", category: "Education", address: "456 Avenue", cityProvince: "Toronto, ON"},
+        { name: "Charity C", category: "Environment", address: "789 Boulevard", cityProvince: "Vancouver, BC"},
+    ];
+
+    let index = 0;
+
+    function displayCharity(index) {
+        const charity = charities[index];
+        document.getElementById("charityName").innerText = charity.name;
+        document.getElementById("category").innerText = charity.category;
+        document.getElementById("address").innerText = charity.address;
+        document.getElementById("cityProvince").innerText = charity.cityProvince;
+
+    }
+
+    function navigate(direction) {
+        if (direction === "left") {
+            index = (index - 1 + charities.length) % charities.length;
+        } else if (direction === "left") {
+            index = (index + 1 + charities.length) % charities.length;
+        }
+        displayCharity(index);
+    }
+
+    // Event listeners for arrow buttons
+    document.querySelector(".left").addEventListener("click", () => navigate("left"));
+    document.querySelector(".right").addEventListener("click", () => navigate("right"));
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+            navigate("left");
+        } else if (event.key === "ArrowRight") {
+            navigate("right");
+        }
+    });
+
+    // Initial display
+    displayCharity(index);
+
+</script>
