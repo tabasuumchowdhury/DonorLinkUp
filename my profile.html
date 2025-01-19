@@ -61,7 +61,7 @@
             margin-right: 10px;
         }
 
-        .form-group input {
+        .form-group input, .form-group select {
             flex: 2;
             padding: 10px;
             font-size: 16px;
@@ -69,7 +69,7 @@
             border-radius: 5px;
         }
 
-        .form-group input[disabled] {
+        .form-group input[disabled], .form-group select[disabled] {
             background-color: #e9ecef;
             cursor: not-allowed;
         }
@@ -133,23 +133,37 @@
         </div>
         <div class="form-group">
             <label for="donation-amount">My target donation amount (CAD):</label>
-            <input type="text" id="donation-amount" value="5000" disabled>
+            <input type="text" id="donation-amount" value="" disabled>
             <button onclick="toggleEdit('donation-amount', this)">Edit</button>
         </div>
         <div class="form-group">
             <label for="timeline">My timeline:</label>
-            <input type="text" id="timeline" value="6 months" disabled>
-            <button onclick="toggleEdit('timeline', this)">Edit</button>
+            <input type="text" id="timeline" value="" disabled>
+            <button onclick="window.location.href = 'setdonationtarget.html';">Edit</button>
         </div>
         <div class="form-group">
             <label for="cause">My cause(s) of interest:</label>
-            <input type="text" id="cause" value="Environmental Sustainability" disabled>
-            <button onclick="toggleEdit('cause', this)">Edit</button>
+            <select id="cause" disabled>
+                <option value="">Select Cause</option>
+                <option value="Environmental Sustainability">Environmental Sustainability</option>
+                <option value="Education">Education</option>
+                <option value="Health Care">Health Care</option>
+            </select>
+            <button onclick="window.location.href = 'interests.html';">Edit</button>
         </div>
         <div class="form-group">
             <label for="city">My city:</label>
             <input type="text" id="city" value="Montreal, QC" disabled>
             <button onclick="toggleEdit('city', this)">Edit</button>
+        </div>
+        <div class="form-group">
+            <label for="frequency">Donation Frequency:</label>
+            <input type="text" id="frequency" value="Per Month" disabled>
+            <button onclick="toggleEdit('frequency', this)">Toggle</button>
+        </div>
+        <div class="form-group">
+            <label for="donation-per-period">Amount to donate per period:</label>
+            <input type="text" id="donation-per-period" value="" disabled>
         </div>
         <div class="progress-bar">
             <label for="progress">My progress:</label>
@@ -169,24 +183,41 @@
         </div>
     </div>
     <script>
-        function toggleEdit(inputId, button) {
-            const input = document.getElementById(inputId);
-            if (inputId === 'timeline') {
-                window.location.href = "setdonationtarget.html";
-            } if (inputId === 'cause') {
-                window.location.href = "interests.html";
-            } else {
-                if (input.disabled) {
-                    input.disabled = false;
-                    input.focus();
-                    button.textContent = "Save";
-                } else {
-                    input.disabled = true;
-                    button.textContent = "Edit";
-                    alert(`${inputId.replace('-', ' ')} updated to: ${input.value}`);
-                }
+        function toggleEdit(fieldId, button) {
+            const field = document.getElementById(fieldId);
+            const isDisabled = field.disabled;
+            field.disabled = !isDisabled;
+            button.textContent = isDisabled ? "Save" : "Edit";
+
+            if (!isDisabled) {
+                // Save the edited value to sessionStorage
+                sessionStorage.setItem(fieldId, field.value);
             }
         }
-    </script>
+
+        window.onload = function() {
+            const donationAmount = sessionStorage.getItem('donationAmount') || ''; // Default to empty string
+            const startDate = sessionStorage.getItem('startDate') || ''; // Default to empty string
+            const endDate = sessionStorage.getItem('endDate') || ''; // Default to empty string
+            const frequency = sessionStorage.getItem('frequency') || ''; // Default to empty string
+            const donationPerPeriod = sessionStorage.getItem('donationPerPeriod') || ''; // Default to empty string
+            const cause = sessionStorage.getItem('cause') || ''; // Default to empty string
+
+            // If the value is not empty, display it, else don't display anything
+            document.getElementById('donation-amount').value = donationAmount ? `${donationAmount}` : '';
+            document.getElementById('timeline').value = (startDate && endDate) ? `${startDate} to ${endDate}` : '';
+            document.getElementById('frequency').value = frequency ? frequency : '';
+            document.getElementById('donation-per-period').value = donationPerPeriod ? `${donationPerPeriod}` : '';
+
+            // Set selected cause from sessionStorage
+            if (cause) {
+                document.getElementById('cause').value = cause;
+            }
+
+            document.getElementById('city').value = 'Montreal, QC'; 
+            document.getElementById('progress').value = 30; 
+            document.getElementById('progress-value').textContent = '30%';
+        };
+    </script>    
 </body>
 </html>
