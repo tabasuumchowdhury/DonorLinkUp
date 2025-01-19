@@ -6,10 +6,15 @@ document.querySelector('interest-button').addEventListener('click', function() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const hometown = document.getElementById("hometown").value;
-    const message = document.getElementById("emptyField");
+    const messageEmpty = document.getElementById("emptyField");
+    const messageEmail = document.getElementById("invalidEmail");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name || !email || !hometown) {
-        message.style.display = "block";
+        messageEmpty.style.display = "block";
+    }
+    else if(!emailRegex.test(email)){
+        messageEmail.style.display = "block";
     }
     else{
         window.location.href="interests.html";
