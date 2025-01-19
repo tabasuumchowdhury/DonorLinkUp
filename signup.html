@@ -1,26 +1,55 @@
-<!DOCTYPE html>    
+<!DOCTYPE html>
 <html>
     <head>
         <title>Sign Up</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
-        <script src="js/script.js"></script>
+        <script>
+            async function submitSignup() {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const hometown = document.getElementById("hometown").value;
+
+                if (!name || !email || !hometown) {
+                    alert("Please fill in all fields!");
+                    return;
+                }
+
+                try {
+                    const response = await fetch("http://127.0.0.1:5000/signup", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ name, email, hometown }),
+                    });
+
+                    const result = await response.json();
+                    alert(result.message); // Show a welcome message
+                    window.location.href = "interests.html"; // Redirect to interests page
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Failed to connect to the server. Please try again later.");
+                }
+            }
+        </script>
     </head>
     <body>
         <main class="signup-page">
             <h1>Create An Account</h1>
             <div class="form-field">
                 <input type="text" id="name" placeholder="Enter your name">
-              </div>
-              <div class="form-field">
+            </div>
+            <div class="form-field">
                 <input type="text" id="email" placeholder="Enter your email">
-              </div>
-              <div class="form-field">
+            </div>
+            <div class="form-field">
                 <input type="text" id="hometown" placeholder="Enter your hometown">
-              </div><br>
-              <div class="nav">
-                <button type="button"><a href="interests.html">Next</a></button>
-              </div>
+            </div>
+            <br>
+            <div class="nav">
+                <button type="button" onclick="submitSignup()">Next</button>
+            </div>
         </main>
     </body>
 </html>
