@@ -59,22 +59,3 @@ function saveTarget() {
         dateOrder.style.display = "block";
     }
 }
-
-const selectedInterests = new Set();
-
-function toggleSelection(button) {
-    const interest = button.textContent.trim();
-    if (selectedInterests.has(interest)) {
-        selectedInterests.delete(interest);
-        button.classList.remove('selected');
-    } else {
-        selectedInterests.add(interest);
-        button.classList.add('selected');
-    }
-}
-
-function submitSignup() {
-    const selectedArray = Array.from(selectedInterests);
-    console.log("Selected interests:", selectedArray);
-    alert("Your selections have been saved:\n" + selectedArray.join(", "));
-}
