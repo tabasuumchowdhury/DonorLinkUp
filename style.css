@@ -237,3 +237,33 @@ font-size: 15px;
     margin-top: 5px; /* Reduce the space above the input */
     margin-bottom: 5px;
 }
+
+.interest-panel {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  justify-items: center;
+}
+
+.interest-button {
+  background-color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #0f2f76;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+}
+
+.interest-button.selected {
+  background-color: #0f2f76;
+  color: #fff;
+}
+
+.interest-button:hover {
+  transform: scale(1.05);
+}
