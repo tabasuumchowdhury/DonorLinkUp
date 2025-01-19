@@ -71,3 +71,13 @@ input[type="text"]{
 .interest-button:hover {
     background-color: #e0e0e0;
 }
+
+a:link{
+    text-decoration: none;
+    font-weight: bold;
+    color: #0f2f76;
+}
+
+a:visited{
+    color: #0f2f76;
+}
