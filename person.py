@@ -20,13 +20,13 @@ def get_interest(self) :
 def get_city(self) :
     return self.hometown
 
-def compatibility(person: Person, charity: Charity) -> bool:
-    return charity.city == person.hometown
-
-def return_matches(person: Person) : # returns 5 of the matches, no repeats
-    {
-        # if we can find 5 charities with same interest and city, return those and add to the matches
-        # else if we can find 5 charities with the same interest then we can add to the matches
-        # else if we can find 5 charities in the same city then we add to the matches
-        # else we return a message saying that we ran out of matches and we just return 5 random charities
-    }
+def return_matches(person: Person) -> list : # returns all of the matches, no repeats
+    matches = []
+    precise = Charity.charity_search(person.interest, person.hometown)
+    interest_list = Charity.charity_search(person.interest, "")
+    city_list = Charity.charity_search("", person.hometown)
+    matches = matches.extend(precise);
+    matches = matches.extend(interest_list)
+    matches = matches.extend(city_list)
+    if not matches : return None
+    return matches
