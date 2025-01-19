@@ -8,8 +8,14 @@
     <body>
         <main class="login-page">
             <img src="/graphics/donorlinkuplogofull.png"></img>
-            <h1>Login</h1>
+            <h1>Welcome!</h1>
             <input type="text" id="name" placeholder="Enter your name..."><br>
+            <div class="nav">
+                <button type="button" onclick="submitLogin()">Log In</button>
+            </div>
+            <div id="noResults" style="display: none;">
+                <p class="error">No accounts matching your name. Please sign up!</p>
+            </div>
             <p>Don't have an account? <a href="signup.html">Sign up.</a></p>
         </main>
     </body>

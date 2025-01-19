@@ -4,35 +4,7 @@
         <title>Sign Up</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
-        <script>
-            async function submitSignup() {
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const hometown = document.getElementById("hometown").value;
-
-                if (!name || !email || !hometown) {
-                    alert("Please fill in all fields!");
-                    return;
-                }
-
-                try {
-                    const response = await fetch("http://127.0.0.1:5000/signup", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ name, email, hometown }),
-                    });
-
-                    const result = await response.json();
-                    alert(result.message); 
-                    window.location.href = "interests.html"; 
-                } catch (error) {
-                    console.error("Error:", error);
-                    alert("Failed to connect to the server. Please try again later.");
-                }
-            }
-        </script>
+        <script src="script.js"></script>
     </head>
     <body>
         <main class="signup-page">
@@ -49,6 +21,9 @@
             <br>
             <div class="nav">
                 <button type="button" onclick="submitSignup()">Next</button>
+            </div>
+            <div id="emptyField" style="display: none;">
+                <p class="error">Please enter a value for all fields.</p>
             </div>
         </main>
     </body>
