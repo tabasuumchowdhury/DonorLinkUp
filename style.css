@@ -8,6 +8,10 @@ body, html {
     align-items: center; /*vertically*/
 }
 
+p{
+    font-size: 20px;
+}
+
 main {
     justify-content: center; /*horizontally*/
     align-items: center; /*vertically*/
@@ -62,9 +66,4 @@ input[type="text"]{
 
 .interest-button:hover {
     background-color: #e0e0e0;
-}
-
-.interest-button.active {
-    background-color: navy;
-    color: white;
 }
