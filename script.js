@@ -13,6 +13,8 @@ async function submitSignup() {
     const messageEmpty = document.getElementById("emptyField");
     const messageEmail = document.getElementById("invalidEmail");
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    messageEmpty.style.display ="none";
+    messageEmail.style.display ="none";
 
     if (!name || !email || !hometown) {
         messageEmpty.style.display = "block";
