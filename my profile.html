@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #dbe6ef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            width: 80%;
+            max-width: 900px;
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .hearts {
+            width: 120px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-group label {
+            flex: 1;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        .form-group input {
+            flex: 2;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[disabled] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        .form-group button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .milestones {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .milestones img {
+            width: 60px;
+        }
+
+        .donation-history {
+            margin-top: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .donation-history img {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/80" alt="User Icon">
+            <h1>My Profile</h1>
+            <img src="https://via.placeholder.com/120" alt="Hearts Icon" class="hearts">
+        </div>
+        <div class="form-group">
+            <label for="donation-amount">My target donation amount (CAD):</label>
+            <input type="text" id="donation-amount" value="5000" disabled>
+            <button onclick="toggleEdit('donation-amount', this)">Edit</button>
+        </div>
+        <div class="form-group">
+            <label for="timeline">My timeline:</label>
+            <input type="text" id="timeline" value="6 months" disabled>
+            <button onclick="toggleEdit('timeline', this)">Edit</button>
+        </div>
+        <div class="form-group">
+            <label for="cause">My cause(s) of interest:</label>
+            <input type="text" id="cause" value="Environmental Sustainability" disabled>
+            <button onclick="toggleEdit('cause', this)">Edit</button>
+        </div>
+        <div class="form-group">
+            <label for="city">My city:</label>
+            <input type="text" id="city" value="Montreal, QC" disabled>
+            <button onclick="toggleEdit('city', this)">Edit</button>
+        </div>
+        <div class="progress-bar">
+            <label for="progress">My progress:</label>
+            <progress id="progress" value="30" max="100"></progress>
+            <span id="progress-value">30%</span>
+        </div>
+        <div class="milestones">
+            <img src="https://via.placeholder.com/60" alt="100%">
+            <img src="https://via.placeholder.com/60" alt="25%">
+            <img src="https://via.placeholder.com/60" alt="50%">
+            <img src="https://via.placeholder.com/60" alt="First Donation">
+            <img src="https://via.placeholder.com/60" alt="Donation History">
+        </div>
+        <div class="donation-history">
+            <p>My donation history</p>
+            <img src="https://via.placeholder.com/40" alt="Refresh Icon">
+        </div>
+    </div>
+    <script>
+        function toggleEdit(inputId, button) {
+            const input = document.getElementById(inputId);
+            if (inputId === 'timeline') {
+                window.location.href = "setdonationtarget.html";
+            } if (inputId === 'cause') {
+                window.location.href = "interests.html";
+            } else {
+                if (input.disabled) {
+                    input.disabled = false;
+                    input.focus();
+                    button.textContent = "Save";
+                } else {
+                    input.disabled = true;
+                    button.textContent = "Edit";
+                    alert(`${inputId.replace('-', ' ')} updated to: ${input.value}`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
