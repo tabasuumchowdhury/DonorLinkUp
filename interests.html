@@ -18,7 +18,7 @@
             }
         }
 
-        function submitSignup() {
+        function submitInterests() {
             const selectedArray = Array.from(selectedInterests);
             console.log("Selected interests:", selectedArray);
             alert("Your selections have been saved:\n" + selectedArray.join(", "));
@@ -147,7 +147,7 @@
         </div>
         <div class="nav">
             <a href="setdonationtarget.html">
-                <button type="button">Next</button>
+                <button type="button" onclick="submitInterests()">Next</button>
             </a>            
         </div>
     </main>
