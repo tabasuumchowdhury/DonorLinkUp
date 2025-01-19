@@ -25,7 +25,7 @@ def return_matches(person: Person) -> list : # returns all of the matches, no re
     precise = Charity.charity_search(person.interest, person.hometown)
     interest_list = Charity.charity_search(person.interest, "")
     city_list = Charity.charity_search("", person.hometown)
-    matches = matches.extend(precise);
+    matches = matches.extend(precise)
     matches = matches.extend(interest_list)
     matches = matches.extend(city_list)
     return matches
