@@ -4,7 +4,46 @@
         <title>Sign Up</title>
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
-        <script src="script.js"></script>
+        <script>
+          async function submitSignup() {
+              const name = document.getElementById("name").value.trim();
+              const email = document.getElementById("email").value.trim();
+              const hometown = document.getElementById("hometown").value.trim();
+      
+              if (!name || !email || !hometown) {
+                  alert("Please fill in all fields!");
+                  return;
+              }
+      
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailRegex.test(email)) {
+                  alert("Please enter a valid email address!");
+                  return;
+              }
+      
+              try {
+                  const response = await fetch("http://127.0.0.1:5000/signup", {
+                      method: "POST",
+                      headers: {
+                          "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ name, email, hometown }),
+                  });
+      
+                  const result = await response.json();
+                  if (result.success) {
+                      alert(result.message);
+                      window.location.href = "interests.html";
+                  } else {
+                      alert(result.message); 
+                  }
+              } catch (error) {
+                  console.error("Error:", error);
+                  alert("Failed to connect to the server. Please try again later.");
+              }
+          }
+      </script>
+      
     </head>
     <body>
         <main class="signup-page">
@@ -21,12 +60,6 @@
             <br>
             <div class="nav">
                 <button type="button" onclick="submitSignup()">Next</button>
-            </div>
-            <div id="emptyField" style="display: none;">
-                <p class="error">Please enter a value for all fields.</p>
-            </div>
-            <div id="invalidEmail" style="display: none;">
-                <p class="error">Please enter a valid email.</p>
             </div>
         </main>
     </body>
