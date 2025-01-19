@@ -36,7 +36,7 @@ async function submitSignup() {
 
 function passToPython()
 {
-    return names, email, hometown
+    return (names, emails, hometowns)
 }
 
 function saveTarget() {
