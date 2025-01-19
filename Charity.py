@@ -41,7 +41,7 @@ class Charity:
             data.get('postalCode', ""),
             data.get('country', "")
         )
-
+    @classmethod
     def from_csv(cls, file_path):
         charities = []
         df = pd.read_csv(file_path, encoding='utf-8', on_bad_lines="skip", 
@@ -61,9 +61,9 @@ class Charity:
             )
             charities.append(charity_instance)
         return charities
-
+    @staticmethod
     def charity_search(category = "", city = ""):
-        charities = from_csv(Charity, "charity.csv")
+        charities = Charity.from_csv(Charity, "charity.csv")
         charity_chosen = []
         for charity in charities:
             if (charity.cat == category ) and (charity.city == city) :
