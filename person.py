@@ -28,5 +28,4 @@ def return_matches(person: Person) -> list : # returns all of the matches, no re
     matches = matches.extend(precise);
     matches = matches.extend(interest_list)
     matches = matches.extend(city_list)
-    if not matches : return None
     return matches
