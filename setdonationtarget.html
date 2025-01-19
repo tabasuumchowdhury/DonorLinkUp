@@ -5,101 +5,25 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="/graphics/donorlinkuplogo.png">
     <script src="script.js"></script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .donation-page {
-            width: 100%;
-            max-width: 600px;
-            background-color: #f0f8ff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .donation-page img {
-            width: 100px;
-            margin-bottom: 20px;
-        }
-
-        .header-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-size: 16px;
-            color: #555;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .nav button {
-            padding: 12px 20px;
-            font-size: 18px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .nav button:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <main class="donation-page">
-        <img src="/graphics/donorlinkuplogo.png" alt="Heart Logo">
-        <div class="header-text">
-            Enter your target donation details
-        </div>
-        <div class="form-group">
-            <label for="donation-amount">Enter your target donation amount in CAD</label>
+        <img src="/graphics/donorlinkuplogo.png" alt="Heart Logo" style="width:50px; height:auto;">
+        <h1>Enter your target donation details</h1>
+        <div class="form-field">
+            <p>Enter your target donation amount in CAD</p>
             <input type="number" id="donation-amount" placeholder="e.g., 1000">
         </div>
-        <div class="form-group">
-            <label for="start-date">Select the start date</label>
+        <div class="form-field">
+            <p>Select the start date</p>
             <input type="date" id="start-date">
         </div>
-        <div class="form-group">
-            <label for="end-date">Select the end date</label>
+        <div class="form-field">
+            <p>Select the end date</p>
             <input type="date" id="end-date">
         </div>
-        <div class="form-group">
-            <label for="frequency">Choose your donation frequency</label>
+        <div class="form-field">
+            <p>Choose your donation frequency</p>
             <select id="frequency">
                 <option value="day">Per Day</option>
                 <option value="week">Per Week</option>

@@ -8,6 +8,15 @@ body, html {
     display: flex;
     justify-content: center; /*horizontally*/
     align-items: center; /*vertically*/
+
+    .donation-page{
+      display: block;
+    }
+}
+
+body.donation-page {
+  display: block; /* Disable centering for the donation page */
+  padding: 20px; /* Ensure content doesn't touch edges */
 }
 
 h1{
@@ -27,7 +36,7 @@ main {
     text-align: center;
 }
 
-input[type="text"]{
+input, select {
     padding: 10px 15px;         /* Padding inside the input */
     margin: 20px 0;             /* Space above and below the input */
     border: 2px solid #0f2f76;
@@ -173,21 +182,3 @@ a:visited{
   .error{
     color: darkred;
   }
-/*
-  .box-container {
-    width: 400px;
-    padding: 20px;
-    border: 2px solid #000;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .box-container p {
-    width: 40%;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    text-align: center;
-  }*/
