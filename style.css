@@ -96,17 +96,26 @@ a:visited{
     color: #6bb4df;
 }
 
+.dashboard {
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+    margin: 0;
+  }
+
 .top-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 10px;
-    padding-left: 650px;
+    position: absolute; 
+    top: 0; 
+    left: 50%;
+    transform: translateX(-23%); 
+    width: auto; 
+    margin: 0; 
   }
   
   .top-image img {
     width: 50%;
     height: auto;
+    margin: 5% 0%;
   }
 
   .top-left-image {
@@ -121,11 +130,16 @@ a:visited{
     width: 15%;
     height: auto;
   }
+  
 
   #dashboard-welcome {
-    position: fixed;
-    top: 110px;
     font-size: 15px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    width: 100%;
   }
 
   #instructions {
@@ -135,7 +149,15 @@ a:visited{
   }
 
   .left-div {
-    width: 20%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+
+  .right-div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
   }
 
   .tiny-box
